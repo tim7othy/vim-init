@@ -17,6 +17,7 @@ if !exists('g:bundle_group')
 	let g:bundle_group = ['basic', 'tags', 'enhanced', 'filetypes', 'textobj']
 	let g:bundle_group += ['tags', 'airline', 'nerdtree', 'ale', 'echodoc']
 	let g:bundle_group += ['leaderf']
+	let g:bundle_group += ['ycm']
 endif
 
 
@@ -517,6 +518,10 @@ if index(g:bundle_group, 'leaderf') >= 0
 	endif
 endif
 
+if index(g:bundle_group, 'ycm') >= 0
+   Plug 'Valloric/YouCompleteMe'
+endif
+
 
 "----------------------------------------------------------------------
 " 结束插件安装
@@ -545,7 +550,7 @@ set completeopt=menu,menuone,noselect
 
 " 两个字符自动触发语义补全
 let g:ycm_semantic_triggers =  {
-			\ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+			\ 'c,cpp,python,java,go,erlang,perl,rust': ['re!\w{2}'],
 			\ 'cs,lua,javascript': ['re!\w{2}'],
 			\ }
 
