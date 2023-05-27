@@ -123,17 +123,32 @@ endif
 
 
 "----------------------------------------------------------------------
-" 缓存：插件 unimpaired 中定义了 [b, ]b 来切换缓存
+" 缓存
 "----------------------------------------------------------------------
 noremap <silent> <leader>bn :bn<cr>
 noremap <silent> <leader>bp :bp<cr>
+noremap <silent> <leader>bm :bm<cr>
+noremap <silent> <leader>bv :vs<cr>
+noremap <silent> <leader>bs :sp<cr>
+noremap <silent> <leader>bd :bdelete<cr>
+noremap <silent> <leader>bl :ls<cr>
+noremap <silent> <leader>bb :ls<cr>:b
 
+"----------------------------------------------------------------------
+" 插件 unimpaired 中定义了
+" ]b和[b               循环遍历缓冲区。
+" [<space>, ]<space>   在当前行的上下添加空白行
+" [e, ]e               切换当前行和上下行
+" ]f, [f               循环遍历同一目录中的文件，并打开为当前缓冲区。
+" ]l, [l               遍历位置列表
+" ]q, [q               遍历快速修复列表
+" ]t, [t               遍历标签列表
+"----------------------------------------------------------------------
 
 "----------------------------------------------------------------------
 " TAB：创建，关闭，上一个，下一个，左移，右移
 " 其实还可以用原生的 CTRL+PageUp, CTRL+PageDown 来切换标签
 "----------------------------------------------------------------------
-
 noremap <silent> <leader>tc :tabnew<cr>
 noremap <silent> <leader>tq :tabclose<cr>
 noremap <silent> <leader>tn :tabnext<cr>
@@ -221,7 +236,25 @@ elseif has('nvim')
 	tnoremap <m-q> <c-\><c-n>
 endif
 
+"----------------------------------------------------------------------
+" 调整窗口
+"----------------------------------------------------------------------
+noremap <silent><space>= :resize +3<cr>
+noremap <silent><space>- :resize -3<cr>
+noremap <silent><space>, :vertical resize -3<cr>
+noremap <silent><space>. :vertical resize +3<cr>
 
+
+"----------------------------------------------------------------------
+" 便捷操作
+"----------------------------------------------------------------------
+" 快速保存
+noremap <C-S> :w<cr>
+inoremap <C-S> <ESC>:w<cr>
+" 全选
+noremap <space>aa ggVG
+" 关闭全部窗口并推出
+noremap <silent>Q :<c-u>confirm qall<cr>
 
 "----------------------------------------------------------------------
 " 编译运行 C/C++ 项目
@@ -316,18 +349,29 @@ endfunc
 "----------------------------------------------------------------------
 if executable('rg')
 	noremap <silent><F2> :AsyncRun! -cwd=<root> rg -n --no-heading 
-				\ --color never -g *.h -g *.c* -g *.py -g *.js -g *.vim 
+				\ --color never -g *.h -g *.c* -g *.py -g *.js -g *.rs -g *.vim 
 				\ <C-R><C-W> "<root>" <cr>
 elseif has('win32') || has('win64')
 	noremap <silent><F2> :AsyncRun! -cwd=<root> findstr /n /s /C:"<C-R><C-W>" 
-				\ "\%CD\%\*.h" "\%CD\%\*.c*" "\%CD\%\*.py" "\%CD\%\*.js"
+				\ "\%CD\%\*.h" "\%CD\%\*.c*" "\%CD\%\*.py" "\%CD\%\*.js" "\%CD\%\*.rs" 
 				\ "\%CD\%\*.vim"
 				\ <cr>
 else
 	noremap <silent><F2> :AsyncRun! -cwd=<root> grep -n -s -R <C-R><C-W> 
 				\ --include='*.h' --include='*.c*' --include='*.py' 
-				\ --include='*.js' --include='*.vim'
+				\ --include='*.js' --include='*.rs' --include='*.vim'
 				\ '<root>' <cr>
 endif
 
 
+
+"----------------------------------------------------------------------
+" quickmenu 插件呼出不同菜单的快捷方式
+"----------------------------------------------------------------------
+noremap <silent><F12> :call quickmenu#toggle(0)<cr>
+inoremap <silent><F12> <ESC>:call quickmenu#toggle(0)<cr>
+
+noremap <leader>m0 :call quickmenu#toggle(0)<cr>
+noremap <leader>m1 :call quickmenu#toggle(1)<cr>
+noremap <leader>m2 :call quickmenu#toggle(2)<cr>
+noremap <leader>m3 :call quickmenu#toggle(3)<cr>
