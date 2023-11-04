@@ -125,14 +125,14 @@ endif
 "----------------------------------------------------------------------
 " 缓存
 "----------------------------------------------------------------------
-noremap <silent> <leader>bn :bn<cr>
-noremap <silent> <leader>bp :bp<cr>
-noremap <silent> <leader>bm :bm<cr>
-noremap <silent> <leader>bv :vs<cr>
-noremap <silent> <leader>bs :sp<cr>
-noremap <silent> <leader>bd :bdelete<cr>
-noremap <silent> <leader>bl :ls<cr>
-noremap <silent> <leader>bb :ls<cr>:b
+noremap <silent> <space>bn :bn<cr>
+noremap <silent> <space>bp :bp<cr>
+noremap <silent> <space>bm :bm<cr>
+noremap <silent> <space>bv :vs<cr>
+noremap <silent> <space>bs :sp<cr>
+noremap <silent> <space>bd :bdelete<cr>
+noremap <silent> <space>bl :ls<cr>
+noremap <silent> <space>bb :ls<cr>:b
 
 "----------------------------------------------------------------------
 " 插件 unimpaired 中定义了
@@ -149,11 +149,11 @@ noremap <silent> <leader>bb :ls<cr>:b
 " TAB：创建，关闭，上一个，下一个，左移，右移
 " 其实还可以用原生的 CTRL+PageUp, CTRL+PageDown 来切换标签
 "----------------------------------------------------------------------
-noremap <silent> <leader>tc :tabnew<cr>
-noremap <silent> <leader>tq :tabclose<cr>
-noremap <silent> <leader>tn :tabnext<cr>
-noremap <silent> <leader>tp :tabprev<cr>
-noremap <silent> <leader>to :tabonly<cr>
+noremap <silent> <space>tc :tabnew<cr>
+noremap <silent> <space>tq :tabclose<cr>
+noremap <silent> <space>tn :tabnext<cr>
+noremap <silent> <space>tp :tabprev<cr>
+noremap <silent> <space>to :tabonly<cr>
 
 
 " 左移 tab
@@ -172,8 +172,8 @@ function! Tab_MoveRight()
 	endif
 endfunc
 
-noremap <silent><leader>tl :call Tab_MoveLeft()<cr>
-noremap <silent><leader>tr :call Tab_MoveRight()<cr>
+noremap <silent><space>tl :call Tab_MoveLeft()<cr>
+noremap <silent><space>tr :call Tab_MoveRight()<cr>
 noremap <silent><m-left> :call Tab_MoveLeft()<cr>
 noremap <silent><m-right> :call Tab_MoveRight()<cr>
 
@@ -239,17 +239,17 @@ endif
 "----------------------------------------------------------------------
 " 调整窗口
 "----------------------------------------------------------------------
-noremap <silent><leader>= :resize +3<cr>
-noremap <silent><leader>- :resize -3<cr>
-noremap <silent><leader>, :vertical resize -3<cr>
-noremap <silent><leader>. :vertical resize +3<cr>
+noremap <silent><space>= :resize +3<cr>
+noremap <silent><space>- :resize -3<cr>
+noremap <silent><space>, :vertical resize -3<cr>
+noremap <silent><space>. :vertical resize +3<cr>
 
 
 "----------------------------------------------------------------------
 " 便捷操作
 "----------------------------------------------------------------------
 " 全选
-noremap <leader>aa ggVG
+noremap <space>aa ggVG
 " 关闭全部窗口并推出
 noremap <silent>Q :<c-u>confirm qall<cr>
 
