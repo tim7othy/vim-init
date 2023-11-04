@@ -239,20 +239,17 @@ endif
 "----------------------------------------------------------------------
 " 调整窗口
 "----------------------------------------------------------------------
-noremap <silent><space>= :resize +3<cr>
-noremap <silent><space>- :resize -3<cr>
-noremap <silent><space>, :vertical resize -3<cr>
-noremap <silent><space>. :vertical resize +3<cr>
+noremap <silent><leader>= :resize +3<cr>
+noremap <silent><leader>- :resize -3<cr>
+noremap <silent><leader>, :vertical resize -3<cr>
+noremap <silent><leader>. :vertical resize +3<cr>
 
 
 "----------------------------------------------------------------------
 " 便捷操作
 "----------------------------------------------------------------------
-" 快速保存
-noremap <C-S> :w<cr>
-inoremap <C-S> <ESC>:w<cr>
 " 全选
-noremap <space>aa ggVG
+noremap <leader>aa ggVG
 " 关闭全部窗口并推出
 noremap <silent>Q :<c-u>confirm qall<cr>
 

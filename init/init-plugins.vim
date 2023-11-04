@@ -101,7 +101,14 @@ if index(g:bundle_group, 'basic') >= 0
 	" 支持库，给其他插件用的函数库
 	Plug 'xolox/vim-misc'
 
-	" 用于在侧边符号栏显示 marks （ma-mz 记录的位置）
+	" 用于在侧边符号栏显示 marks
+	"
+	" mx:  Toggle mark 'x' and display it in the leftmost column
+    " dmx: Remove mark 'x'
+	" m-           Delete all marks from the current line
+	" m<Space>     Delete all marks from the current buffer
+	" ]`           Jump to next mark
+	" [`           Jump to prev mark
 	Plug 'kshenoy/vim-signature'
 
 	" 用于在侧边符号栏显示 git/svn 的 diff
@@ -159,10 +166,15 @@ if index(g:bundle_group, 'enhanced') >= 0
 	" 给不同语言提供字典补全，插入模式下 c-x c-k 触发
 	Plug 'asins/vim-dict'
 
-	" 使用 :FlyGrep 命令进行实时 grep
-	Plug 'wsdjeg/FlyGrep.vim'
-
-	" 使用 :CtrlSF 命令进行模仿 sublime 的 grep
+	" 使用 :CtrlSF [word] 命令进行模仿 sublime 的 grep
+	"
+	" You can edit search result as you like. Whenever you apply a change, you can save your change to actual file by :w.
+	" Enter, o - Open corresponding file of current line
+	" t - Like Enter but open file in a new tab.
+	" q - Quit CtrlSF window.
+	" <C-J> - Move cursor to next match.
+	" <C-N> - Move cursor to next file's first match.
+	" <C-C> - Stop a background searching process.
 	Plug 'dyng/ctrlsf.vim'
 
 	" 配对括号和引号自动补全
