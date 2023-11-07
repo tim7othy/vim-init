@@ -127,6 +127,12 @@ if index(g:bundle_group, 'basic') >= 0
 	" Git 支持
 	Plug 'tpope/vim-fugitive'
 
+	" 快捷注释
+	" <leader>cc  Comment out text selected in visual mode.
+	" <leader>cu  Uncomments the selected line(s).
+	" <leader>c<space>  Toggles the comment state of the selected line(s).
+	Plug 'scrooloose/nerdcommenter'
+
 	" 使用 ALT+E 来选择窗口
 	nmap <m-e> <Plug>(choosewin)
 
@@ -149,6 +155,10 @@ if index(g:bundle_group, 'basic') >= 0
 	let g:signify_vcs_cmds = {
 			\ 'git': 'git diff --no-color --diff-algorithm=histogram --no-ext-diff -U0 -- %f',
 			\}
+
+	" 注释的时候自动加个空格, 强迫症必配
+	let g:NERDSpaceDelims=1
+
 endif
 
 
